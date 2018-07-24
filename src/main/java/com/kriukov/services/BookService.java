@@ -16,4 +16,9 @@ public class BookService {
     public List<Book> getBooks() {
         return bookDAO.findAll();
     }
+
+    //TODO: test it
+    public void createBook(Book book) {
+        bookDAO.save(book);
+    }
 }
