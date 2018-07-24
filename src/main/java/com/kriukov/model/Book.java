@@ -3,7 +3,7 @@ package com.kriukov.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_book")
+@Table(name = "books")
 public class Book {
 
     @Id
