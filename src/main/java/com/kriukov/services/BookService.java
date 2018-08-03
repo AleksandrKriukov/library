@@ -13,20 +13,32 @@ public class BookService {
     @Autowired
     private BookDAO bookDAO;
 
-    public List<Book> getBooks() {
-        return bookDAO.findAll();
-    }
-
     public void createBook(Book book) {
-        if (book.getId() == null) {
+        if (book.getId() == null) { //TODO: may be not the best solution. DTO can solve this
             bookDAO.save(book);
         } else {
             throw new IllegalArgumentException("Book ID is not allowed in creation operation");
         }
     }
 
+    public List<Book> getBooks() {
+        return bookDAO.findAll();
+    }
+
+    public Book getBookById(Long bookId) {
+        return bookDAO.getOne(bookId);
+    }
+
     public void updateBook(Long bookId, Book book) {
         book.setId(bookId);
         bookDAO.save(book);
+    }
+
+    public void deleteBooks() {
+        bookDAO.deleteAll();
+    }
+
+    public void deleteBook(Long bookId) {
+        bookDAO.deleteById(bookId);
     }
 }
