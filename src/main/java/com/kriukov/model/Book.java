@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +21,18 @@ public class Book {
     private String name;
 
     @Column
-    private Double price;
+    private Long authorId;
+
+    @ManyToOne
+    @JoinColumn(name = "genreId")
+    private Genre genre;
 
     public Book() {
     }
 
-    public Book(String name, Double price) {
+    //TODO: check if this constructor is need
+    public Book(String name) {
         this.name = name;
-        this.price = price;
     }
 
     public Long getId() {
@@ -45,12 +51,20 @@ public class Book {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    public Long getAuthorId() {
+        return authorId;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     @Override
@@ -58,7 +72,8 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price +
+                ", authorId=" + authorId +
+                ", genre=" + genre +
                 '}';
     }
 }
