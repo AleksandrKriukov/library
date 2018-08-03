@@ -1,2 +1,5 @@
 INSERT INTO books (id, name, price) VALUES (1, 'Spring Boot', 0.7)
 INSERT INTO books (id, name, price) VALUES (2, 'Big Data', 1.0)
+INSERT INTO books (id, name, price) VALUES (3, 'Data Science', 0.8)
+INSERT INTO books (id, name, price) VALUES (4, 'Java 8', 1.2)
+INSERT INTO books (id, name, price) VALUES (5, 'Stream API', 2.2)

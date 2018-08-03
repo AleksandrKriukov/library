@@ -17,8 +17,16 @@ public class BookService {
         return bookDAO.findAll();
     }
 
-    //TODO: test it
     public void createBook(Book book) {
+        if (book.getId() == null) {
+            bookDAO.save(book);
+        } else {
+            throw new IllegalArgumentException("Book ID is not allowed in creation operation");
+        }
+    }
+
+    public void updateBook(Long bookId, Book book) {
+        book.setId(bookId);
         bookDAO.save(book);
     }
 }
