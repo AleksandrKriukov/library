@@ -5,13 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
-@Table(name = "books")
-public class Book {
+@Table(name = "authors")
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,21 +19,14 @@ public class Book {
     @Column
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "genreId")
-    private Genre genre;
+    @Column
+    private Date birthDate;
 
-    @ManyToOne
-    @JoinColumn(name = "authorId")
-    private Author author;
+    @Column
+    private Date deathDate;
 
-    public Book() {
-    }
-
-    //TODO: check if this constructor is need
-    public Book(String name) {
-        this.name = name;
-    }
+    @Column
+    private String comment;
 
     public Long getId() {
         return id;
@@ -52,29 +44,38 @@ public class Book {
         this.name = name;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Date getDeathDate() {
+        return deathDate;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setDeathDate(Date deathDate) {
+        this.deathDate = deathDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Author{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", genre=" + genre +
-                ", author=" + author +
+                ", birthDate=" + birthDate +
+                ", deathDate=" + deathDate +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 }
