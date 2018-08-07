@@ -12,7 +12,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "authors")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) //Solves problem that entities are loaded lazily
+// and serialization happens before they get loaded fully
 public class Author {
 
     @Id
@@ -30,6 +31,9 @@ public class Author {
 
     @Column
     private String comment;
+
+    public Author() {
+    }
 
     public Long getId() {
         return id;

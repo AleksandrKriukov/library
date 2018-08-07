@@ -11,7 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "genres")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) //Solves problem that entities are loaded lazily
+// and serialization happens before they get loaded fully
 public class Genre {
 
     @Id
@@ -20,6 +21,9 @@ public class Genre {
 
     @Column
     private String genre;
+
+    public Genre() {
+    }
 
     public Long getId() {
         return id;

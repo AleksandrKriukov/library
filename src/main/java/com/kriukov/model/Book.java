@@ -13,7 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "books")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) //Solves problem that entities are loaded lazily
+// and serialization happens before they get loaded fully
 public class Book {
 
     @Id
