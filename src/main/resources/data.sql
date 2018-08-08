@@ -1,7 +1,7 @@
 INSERT INTO genres (id, genre) VALUES (1, 'Education')
 INSERT INTO genres (id, genre) VALUES (2, 'Science fiction')
 
-INSERT INTO authors (id, name) VALUES (1, 'Arthur')
+INSERT INTO authors (id, name, birth_date) VALUES (1, 'Arthur', '2012-09-17')
 INSERT INTO authors (id, name) VALUES (2, 'Johannes')
 INSERT INTO authors (id, name) VALUES (3, 'Bjorn')
 

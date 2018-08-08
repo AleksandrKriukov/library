@@ -31,7 +31,7 @@ public class AuthorController {
         return authorService.getAuthors();
     }
 
-    @GetMapping("/{authorId}")
+    @GetMapping("/{authorId}") //TODO: default json converter uses weird timezone. Use DTO?
     public Author getAuthorById(@PathVariable Long authorId) {
         return authorService.getAuthorById(authorId);
     }
